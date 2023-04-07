@@ -20,6 +20,10 @@ from rich import print
 import PIL
 import os.path
 
+from django.urls import reverse_lazy
+from django.contrib import messages
+from django.views.generic.edit import DeleteView
+
 
 def home(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
@@ -59,6 +63,30 @@ def deleteSection(request, pk):
         section.delete()
         return redirect('home')
     return render(request, 'base/delete.html', {'obj':section})
+
+# def delete_image(request, pk):
+#     section = Section.objects.get(id=pk)
+#     images = Image.objects.filter(section=section)
+#     if request.method == 'POST':
+#         images.image.url.delete()
+#         return redirect('section-detail', id=pk)
+#     context = {
+#         'section': section,
+#     }
+#     return render(request, 'base/delete_image.html', context)
+
+class ImageDeleteView(DeleteView):
+    model = Image
+    template_name = 'delete_image.html'
+    success_url = reverse_lazy('home')
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        section = self.object.section
+        success_url = self.get_success_url()
+        messages.success(request, 'Image deleted successfully!')
+        self.object.delete()
+        return redirect('section-detail', id=pk)
 
 
 
