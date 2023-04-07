@@ -11,9 +11,6 @@
   });
 
 
-
-
-
 </script>
 
 <main class="create-room layout">
@@ -117,11 +114,12 @@
 
     </div>
 
-    </div>
     <div class="image-container">
         {% for image in images %}
-        <img src="{{ image.image.url }}" alt="{{ image.id }}">
-        <a href="{% url 'delete-image' section.id image_id=image.id %}">
+
+            <img src="{{ image.image.url }}" alt="{{ image.id }}">
+
+        <a href="{% url 'delete_image' section.id image.id %}">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
                  viewBox="0 0 32 32">
                 <title>remove</title>
@@ -134,6 +132,8 @@
     </div>
 
 
+
+
     <script>
 $(function(){
     var $select = $(".1-100");
@@ -141,6 +141,7 @@ $(function(){
         $select.append($('<option></option>').val(i).html(i))
     }
 });
+
 
 
 

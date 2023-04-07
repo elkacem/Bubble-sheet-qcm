@@ -75,18 +75,18 @@ def deleteSection(request, pk):
 #     }
 #     return render(request, 'base/delete_image.html', context)
 
-class ImageDeleteView(DeleteView):
-    model = Image
-    template_name = 'delete_image.html'
-    success_url = reverse_lazy('home')
+def delete_image(request, pk, image_id):
+    section = get_object_or_404(Section, id=pk)
+    image = get_object_or_404(Image, id=image_id, section=section)
 
-    def delete(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        section = self.object.section
-        success_url = self.get_success_url()
-        messages.success(request, 'Image deleted successfully!')
-        self.object.delete()
-        return redirect('section-detail', id=pk)
+    # Delete the image file from the file system.
+    image.image.delete()
+
+    # Delete the image object from the database.
+    image.delete()
+
+    # Redirect the user to the section detail page.
+    return redirect('section-detail', pk=section.id)
 
 
 
