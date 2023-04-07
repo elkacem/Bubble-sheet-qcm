@@ -255,7 +255,6 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
     '''
         Read answer from \'n\' blocks of the main answer sheet.
     '''
-
     # plt.imshow(image, interpolation='nearest')
     # plt.show()
 
@@ -266,11 +265,11 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block):
             j += 1
             # img = image[690 + (i * 190):845 + (i * 190), 105:190]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 102:187]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 95:187]
 
-            # if set(read) == {None}:
-            #     break
+            # plt.imshow(img, interpolation='nearest')
+            # plt.show()
+
             if j > 4:
                 break
 
@@ -285,8 +284,7 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             j += 1
             # img = image[690 + (i * 190):845 + (i * 190), 105:190]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 102:187]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 95:187]
 
             # plt.imshow(img, interpolation='nearest')
             # plt.show()
@@ -304,8 +302,7 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             k += 1
             # img = image[690 + (i * 190):845 + (i * 190), 245:330]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 242:327]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 235:327]
 
             # plt.imshow(img, interpolation='nearest')
             # plt.show()
@@ -315,7 +312,7 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
             if k > 4:
                 break
 
-            answers.append(read)
+            answers.append(read_answer(img, 5, debug=False))
             num_b += 1
             if num_b == n_block:
                 return [j for i in answers for j in i]
@@ -327,8 +324,10 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             j += 1
             # img = image[690 + (i * 190):845 + (i * 190), 105:190]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 102:187]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 95:187]
+
+            # plt.imshow(img, interpolation='nearest')
+            # plt.show()
 
             # if set(read) == {None}:
             #     break
@@ -343,8 +342,9 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             k += 1
             # img = image[690 + (i * 190):845 + (i * 190), 242:327]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 102:187]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 235:327]
+
+            #
 
             # if set(read) == {None}:
             #     break
@@ -359,8 +359,9 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             m += 1
             # img = image[690 + (i * 190):845 + (i * 190), 382:467]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 382:467]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 375:467]
+
+            #
 
             # if set(read) == {None}:
             #     break
@@ -380,8 +381,7 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             j += 1
             # img = image[690 + (i * 190):845 + (i * 190), 102:187]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 102:187]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 95:187]
 
             # if set(read) == {None}:
             #     break
@@ -396,8 +396,7 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             k += 1
             # img = image[690 + (i * 190):845 + (i * 190), 242:327]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 242:327]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 235:327]
 
             # if set(read) == {None}:
             #     break
@@ -412,8 +411,7 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             m += 1
             # img = image[690 + (i * 190):845 + (i * 190), 382:467]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 382:467]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 375:467]
 
             # if set(read) == {None}:
             #     break
@@ -428,8 +426,7 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             n += 1
             # img = image[690 + (i * 190):845 + (i * 190), 382:467]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 522:607]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 515:607]
 
             # if set(read) == {None}:
             #     break
@@ -451,8 +448,7 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             j += 1
             # img = image[690 + (i * 190):845 + (i * 190), 105:190]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 102:187]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 95:187]
 
             # plt.imshow(img, interpolation='nearest')
             # plt.show()
@@ -472,10 +468,8 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             k += 1
             # img = image[690 + (i * 190):845 + (i * 190), 245:330]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 242:327]
-            read = read_answer(img, 5, debug=False)
-            # plt.imshow(img, interpolation='nearest')
-            # plt.show()
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 235:327]
+
             if k > 4:
                 break
             # if set(read) == {None}:
@@ -490,8 +484,7 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             l += 1
             # img = image[690 + (i * 190):845 + (i * 190), 385:470]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 382:467]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 375:467]
 
             # if set(read) == {None}:
             #     break
@@ -506,8 +499,7 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             m += 1
             # img = image[690 + (i * 190):845 + (i * 190), 525:610]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 522:607]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 515:607]
 
             # if set(read) == {None}:
             #     break
@@ -522,8 +514,7 @@ def ans_block_read(image: np.ndarray[np.uint8], n_block: int) -> list[int]:
         for i in range(0, n_block - 1):
             n += 1
             # img = image[690 + (i * 190):845 + (i * 190), 665:750]
-            img = image[690 + (i * 50) + (i * 150):840 + (i * 50) + (i * 150), 662:747]
-            read = read_answer(img, 5, debug=False)
+            img = image[682 + (i * 48) + (i * 150):840 + (i * 48) + (i * 150), 654:747]
 
             # if set(read) == {None}:
             #     break
@@ -547,7 +538,7 @@ def id_block_read(image: np.ndarray[np.uint8], debug: bool = True) -> int:
     '''
 
     # img = image[340:625, 300:370]
-    img = image[323:615, 60:280]
+    img = image[320:615, 63:280]
 
     grey = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     inp = cv2.GaussianBlur(grey, ksize=(3, 3), sigmaX=1)
@@ -560,7 +551,7 @@ def id_block_read(image: np.ndarray[np.uint8], debug: bool = True) -> int:
     id_str = ''
 
     for i in range(1, 11):
-        (contours, _) = cv2.findContours(res[:, (i - 1) * 20:i * 21], cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+        (contours, _) = cv2.findContours(res[:, (i - 1) + (i - 1) * 19:i * 21], cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
         if debug:
             cv2.imshow(str(uuid4()), res[:, (i - 1) * 21:i * 22])
@@ -568,42 +559,48 @@ def id_block_read(image: np.ndarray[np.uint8], debug: bool = True) -> int:
 
         for cnt in (contours[1:][::-1]):
 
+            # cv2.drawContours(img, cnt, -1, (0, 255, 0), 3)
+            # cv2.imshow('Contours', image)
+            # cv2.waitKey(0)
+            # cv2.destroyAllWindows()
+
             if len(id_str) == 10:
                 break
 
             (x, y, w, h) = cv2.boundingRect(cnt)
+            print('this is y', y)
 
             if debug:
                 print(y)
 
-            if y in range(0, 30):
+            if y in range(0, 20):
                 id_str += '1'
 
-            elif y in range(30, 56):
+            elif y in range(20, 50):
                 id_str += '2'
 
-            elif y in range(56, 82):
+            elif y in range(50, 80):
                 id_str += '3'
 
-            elif y in range(82, 108):
+            elif y in range(80, 110):
                 id_str += '4'
 
-            elif y in range(108, 134):
+            elif y in range(110, 130):
                 id_str += '5'
 
-            elif y in range(134, 160):
+            elif y in range(130, 160):
                 id_str += '6'
 
-            elif y in range(160, 186):
+            elif y in range(160, 190):
                 id_str += '7'
 
-            elif y in range(186, 212):
+            elif y in range(190, 220):
                 id_str += '8'
 
-            elif y in range(212, 238):
+            elif y in range(220, 250):
                 id_str += '9'
 
-            elif y in range(238, 264):
+            elif y in range(250, 280):
                 id_str += '0'
 
     if id_str:
@@ -661,7 +658,7 @@ def process(request, pk):
             # image = cv2.imread(os.path.join(BASE_DIR,img['path']))
             image = cv2.imread(image.image.path)
 
-            answer_sheet = cv2.resize(find_paper(image), (827, 1669))
+            answer_sheet = cv2.resize(image, (827, 1669))
             student_id = id_block_read(answer_sheet, debug=False)
             answers = ans_block_read(answer_sheet, int(blocks))
 
