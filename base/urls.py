@@ -11,5 +11,6 @@ urlpatterns = [
                   path('create-section/', views.createSection, name="create-section"),
                   path('process/<str:pk>/', views.process, name="process"),
                   path('download-excel/', views.download_excel, name='download_excel'),
+                  path('delete-section/<str:pk>/', views.deleteSection, name="delete-section"),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

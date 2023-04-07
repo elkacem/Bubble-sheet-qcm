@@ -52,6 +52,15 @@ def createSection(request):
 
     return render(request, 'base/section_form.html', context)
 
+def deleteSection(request, pk):
+    section = Section.objects.get(id=pk)
+
+    if request.method == 'POST':
+        section.delete()
+        return redirect('home')
+    return render(request, 'base/delete.html', {'obj':section})
+
+
 
 def sectionDetail(request, pk):
     section = get_object_or_404(Section, id=pk)
