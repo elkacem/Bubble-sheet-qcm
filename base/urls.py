@@ -14,6 +14,7 @@ urlpatterns = [
                   path('process/<str:pk>/', views.process, name="process"),
                   path('download-excel/', views.download_excel, name='download_excel'),
                   path('delete-section/<str:pk>/', views.deleteSection, name="delete-section"),
+    
                   path('section/<str:pk>/delete-image/<int:image_id>/', ImageDeleteView.as_view(), name='delete-image'),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
