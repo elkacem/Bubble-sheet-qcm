@@ -75,6 +75,7 @@ def deleteSection(request, pk):
 #     }
 #     return render(request, 'base/delete_image.html', context)
 
+
 def delete_image(request, pk, image_id):
     section = get_object_or_404(Section, id=pk)
     image = get_object_or_404(Image, id=image_id, section=section)
