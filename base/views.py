@@ -589,7 +589,7 @@ def id_block_read(image: np.ndarray[np.uint8], debug: bool = True) -> int:
     id_str = ''
 
     for i in range(1, 11):
-        (contours, _) = cv2.findContours(res[:, (i - 1) + (i - 1) * 19:i * 21], cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+        (contours, _) = cv2.findContours(res[:, (i - 1) * 19:i * 21 + 2], cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
         if debug:
             cv2.imshow(str(uuid4()), res[:, (i - 1) * 21:i * 22])
